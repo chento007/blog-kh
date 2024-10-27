@@ -1,3 +1,5 @@
+'use client'
+
 import {
     Card,
     CardHeader,
@@ -14,12 +16,15 @@ import ReplyIcon from "../Icon/Reply";
 import MenuDropDownThreeDot from "../Button/MenuDropDownThreeDot";
 import ShareDropDown from "../Button/ShareDropdown";
 import moment from "moment";
+import {useRouter} from "next/navigation";
 
 
 export default function CardItem({id, title, description, image, createdBy, createdAt, updatedAt}: CardProps) {
 
+    const router = useRouter()
+
     return (
-            <Link href={`/content/${id}`} color="foreground">
+            <section onClick={()=>router.push(`/content/${id}`)} color="foreground">
                 <Card className="max-w-[1000px] cursor-pointer mt-2">
                     <CardHeader className="gap-3 flex-col justify-items-start items-start">
                         <User
@@ -62,6 +67,6 @@ export default function CardItem({id, title, description, image, createdBy, crea
                         </div>
                     </CardFooter>
                 </Card>
-            </Link>
+            </section>
     );
 }

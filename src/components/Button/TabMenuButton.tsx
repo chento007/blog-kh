@@ -15,7 +15,6 @@ export default function TabMenuButton() {
                         <div className="flex flex-col">
                             {item.content.map((card, index:number) => (
                                 <CardItem
-
                                     key={index}
                                     id={card.id}
                                     title={card.title}

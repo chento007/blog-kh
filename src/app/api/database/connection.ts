@@ -10,18 +10,21 @@ import {Position} from "@/app/api/models/Position";
 
 export const pgConnection = new DataSource({
     type: 'postgres',
-    url: "postgresql://blog-db_owner:vCo6BZT7wEbi@ep-little-dew-a8noqljp.eastus2.azure.neon.tech/blog-db?sslmode=require",
+    url: process.env.POSTGRES_URL,
     ssl: true,
     synchronize: true,
     logging: false,
     entities: [User, Tag, Follower, Comment, PostClap, Post, Position],
-    migrations: ['./migrations/*.ts'],
-    subscribers: [],
 });
 
 export const getDBConnection = async (): Promise<DataSource> => {
     if (!pgConnection.isInitialized) {
-        await pgConnection.initialize();
+        try {
+            await pgConnection.initialize();
+            console.log("Database connection established successfully.");
+        } catch (error) {
+            console.error("Failed to connect to the database:", error);
+        }
     }
     return pgConnection;
 };

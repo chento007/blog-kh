@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { NextUIProvider } from "@nextui-org/react";
 import Header from "@/components/Header/Header";
+import Provider from "@/app/provider";
+import React from "react";
 
 export const metadata: Metadata = {
   title: "BLOG-KH",
@@ -9,17 +10,17 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  children
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
       <body>
-        <NextUIProvider>
-          <Header/>
-          {children}
-        </NextUIProvider>
+          <Provider>
+                <Header/>
+                {children}
+          </Provider>
       </body>
     </html>
   );
