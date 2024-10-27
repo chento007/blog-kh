@@ -1,13 +1,6 @@
 import {
-    Card,
-    CardHeader,
-    CardBody,
-    CardFooter,
-    Divider,
-    Link,
     Image,
-    Button,
-    User, Avatar
+    Avatar
 } from "@nextui-org/react";
 import MenuDropDownThreeDot from "../Button/MenuDropDownThreeDot";
 

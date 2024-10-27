@@ -13,9 +13,9 @@ export default function Home() {
         return <LoadingSpinner/>
     }
     return (
-        <section className="w-1/2 m-auto">
+        <section className="w-full sm:w-3/4 lg:w-1/2 mx-auto px-4">
             <TabMenuButton/>
-            <PaginationComponent total={100} initialPage={1}/>
         </section>
+
     );
 }
